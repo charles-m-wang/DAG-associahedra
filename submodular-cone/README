@@ -1,0 +1,3 @@
+submodular.m2 computes the number of extreme rays of the submodular cone
+
+rank_funcs.sage computes all non-matroid extreme rays of the submodular cone for n=4, but should be able to be extended to compute some non-matroid extreme rays of the submodular cone for larger n

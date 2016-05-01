@@ -1,0 +1,25 @@
+list-connected.sage and new-connected.sage enumerates matroids on n elements, finds the connected ones, and identifies the conditional dependence statements that arise from these matroids.
+
+Usage: sage list-connected.sage n
+
+where n is the number of elements in the ground set. 
+
+This outputs files "connected-matroids-n" in the form of ground set, bases, dependences (and dependences are in the form i j K, where i \dependent j | K)
+
+The characterization of dependences from a connected matroid is computed using:
+i \dependent j | K <=> rank(K)=r-1, rank(K \cup {i})=rank(K \cup {k})=r
+
+NOTE: This code takes quite a while to run for n>6
+
+-------------------------------------------------------------------------------
+connected-isom.sage lists the connected matroids up to isomorphism and their corresponding conditional dependence statements and is invoked similarly to above. This code relies on lists of matroids up to isomorphism obtained from http://www-imai.is.s.u-tokyo.ac.jp/~ymatsu/matroid/index.html
+
+-------------------------------------------------------------------------------
+For convenience, the lists of conditional dependence statements and their corresponding matroids has been included. (note that new-dependences-n lists all matroids while connected-dependences-n lists all matroids up to isomorphism.
+
+-------------------------------------------------------------------------------
+matroids.m2 computes, using the lists of conditional dependences, whether the DAG associahedron of an input DAG can be obtained via the MSMP construction and can also be used to test whether a set of CI statements corresponds to our MSMP construction
+
+DAG.m2 computes the f-vectors of the DAG associahedra (though does not give a concrete realization)
+-------------------------------------------------------------------------------
+check_gaussoid.sage checks whether a set of CI statements satisfies the gaussoid axioms, in particular axtioms 8-10, in Definition 1 of "On Gaussian Conditional Independence Structures" (Lnenicka and Matus)
