@@ -44,13 +44,11 @@ def logDets(DAG):
         vertices.difference_update(subset)
         vertices=sorted(list(vertices))
         temp_K=copy(K)
-        temp_norm=copy(norm_diag)
         for x in reversed(vertices):
             temp_K=minor(temp_K,x,x)
-            temp_norm=minor(temp_norm,x,x)
         vertices=sorted(list(subset))
         vector = [0]*(n+1)
-        vector[0]=(.5)*log((det(temp_K)+0.0)/det(temp_norm))
+        vector[0]=log(det(temp_K))
         for i in list(subset):
             vector[i+1]=-1
         for i in vector:
