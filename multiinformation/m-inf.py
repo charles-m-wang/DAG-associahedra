@@ -33,7 +33,7 @@ def getCorrelationMatrix(DAG,default=False, default_weight=1):
     for edge in adj_list:
         A[edge[0]-1,edge[1]-1]=edge[2] #create adjacency matrix from adjacency list using weights
     
-    return (10*I-A)*(10*I-A).getT(),n #(I-A)D(I-A)^T, here D=I, but in general can choose D differently
+    return (I-A)*(I-A).getT(),n #(I-A)D(I-A)^T, here D=I, but in general can choose D differently
     #product_diagonal=1./sqrt(diag(product)) #get diagonal matrix to normalize diagonal of (I-A)(I-A)^T
     #return diagflat(product_diagonal)*product*diagflat(product_diagonal),n
 
@@ -60,13 +60,13 @@ def logDets(DAG, default=False):
         vertices=sorted(list(subset))
         vector = [0]*(n+1)
         vector[0]=log(det(temp))
-
+        
         for i in list(subset): #find which of the x_i participate in this minor
             vector[i+1]=-1
         for i in vector:
             f.write(str(i)+" ")
         f.write('\n')
-
+        
         if len(list(subset))==n: #sum_{i=1}^n x_i=m([n])
             for i in vector:
                 f.write(str(-i)+" ")
