@@ -17,3 +17,7 @@ The python script is m-inf.py. To run the python script, invoke the command:
 -------------------------------------------------------------------------------
 
 The python code is not very numerically friendly, so for larger graphs the output inequalities are not always correct. Tuning is possible via selection of weights and diagonal matrix in the code to obtain the correct polytope.
+
+--------------------------------------------------------------------------
+
+The file incidence.m2 contains Macaulay2 commands for dealing with the polymake output.  In particular, we can find the incidence matrix of from approximate inequalities and approximate vertices.  Although we have not proven the correctness of this heuristics, it works well for DAG associahedra of DAGs with up 7 nodes.
